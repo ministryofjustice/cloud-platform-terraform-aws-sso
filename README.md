@@ -29,6 +29,7 @@ No Modules.
 | Name |
 |------|
 | [auth0_client](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/client) |
+| [auth0_rule](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule) |
 | [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) |
 | [aws_iam_account_alias](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_account_alias) |
 | [aws_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) |
