@@ -19,6 +19,7 @@ See the [examples/](examples/) folder.
 |------|---------|
 | auth0 | n/a |
 | aws | n/a |
+| http | n/a |
 
 ## Modules
 
@@ -32,7 +33,9 @@ No Modules.
 | [auth0_rule](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule) |
 | [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) |
 | [aws_iam_account_alias](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_account_alias) |
+| [aws_iam_saml_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_saml_provider) |
 | [aws_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) |
+| [http_http](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) |
 
 ## Inputs
 
