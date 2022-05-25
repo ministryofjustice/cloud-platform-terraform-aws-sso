@@ -1,3 +1,7 @@
+provider "auth0" {
+  domain = var.auth0_tenant_domain
+}
+
 resource "auth0_client" "saml" {
   name        = "AWS SSO for ${data.aws_iam_account_alias.current.account_alias}"
   description = "Github SAML provider for the ${data.aws_iam_account_alias.current.account_alias} account"
