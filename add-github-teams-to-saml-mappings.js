@@ -7,6 +7,7 @@ function(user, context, callback) {
     var rolePrefix = 'arn:aws:iam::' + awsAccount;
     var role = 'AccessViaGithub';
     var awsTagKey = 'GithubTeam';
+    var principalTag = 'https://aws.amazon.com/SAML/Attributes/PrincipalTag:' + awsTagKey;
     var samlIdP = rolePrefix + ':saml-provider/' + samlProvider;
     // Get user's Github profile and API access key
     var github_identity = _.find(user.identities, { connection: 'github' });
@@ -34,7 +35,7 @@ function(user, context, callback) {
       context.samlConfiguration.mappings = {
           'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
           'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession',
-          'https://aws.amazon.com/SAML/Attributes/PrincipalTag:' + awsTagKey: awsTagKey,
+          principalTag: awsTagKey,
       };
       return callback(null, user, context);
     
