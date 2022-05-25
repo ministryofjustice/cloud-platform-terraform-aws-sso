@@ -6,6 +6,9 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
+    curl = {
+      source  = "anschoewe/curl"
+    }
   }
   required_version = ">= 0.14"
 }
