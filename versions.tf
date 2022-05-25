@@ -1,10 +1,10 @@
 terraform {
   required_providers {
+    auth0 = {
+      source = "alexkappa/auth0"
+    }
     aws = {
       source = "hashicorp/aws"
-    }
-    kubernetes = {
-      source = "hashicorp/kubernetes"
     }
   }
   required_version = ">= 0.14"
