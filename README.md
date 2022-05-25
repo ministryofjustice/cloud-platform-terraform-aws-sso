@@ -38,12 +38,15 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| auth0\_tenant\_domain | Auth0 domain | `string` | n/a | yes |
 | aws\_account\_id | The AWS Account numeric ID | `string` | n/a | yes |
 | aws\_callback\_url | AWS SSO callback URL | `string` | `"https://signin.aws.amazon.com/saml"` | no |
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| saml\_login\_page | n/a |
 
 <!--- END_TF_DOCS --->
 
