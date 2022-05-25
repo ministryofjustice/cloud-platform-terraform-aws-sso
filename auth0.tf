@@ -24,3 +24,9 @@ resource "auth0_client" "saml" {
   }
 
 }
+
+resource "auth0_rule" "saml_mappings" {
+  name    = "add-github-teams-to-saml-mappings"
+  script  = file("${path.module}/add-github-teams-to-saml-mappings.js")
+  enabled = true
+}
