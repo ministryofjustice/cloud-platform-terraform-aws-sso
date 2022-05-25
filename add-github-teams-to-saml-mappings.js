@@ -5,9 +5,7 @@ function(user, context, callback) {
     var awsAccount = configuration.AWS_ACCOUNT_ID;
     var samlProvider = configuration.AWS_SAML_PROVIDER_NAME;
     var rolePrefix = 'arn:aws:iam::' + awsAccount;
-    var role = 'AccessViaGithub';
-    var awsTagKey = 'GithubTeam';
-    var principalTag = 'https://aws.amazon.com/SAML/Attributes/PrincipalTag:' + awsTagKey;
+    var role = 'access-via-github';
     var samlIdP = rolePrefix + ':saml-provider/' + samlProvider;
     // Get user's Github profile and API access key
     var github_identity = _.find(user.identities, { connection: 'github' });
@@ -24,7 +22,7 @@ function(user, context, callback) {
         return callback(new Error('Error retrieving teams from Github: ' + body || err));
       }
       user.awsRoleSession = user.nickname;
-      user.awsTagKeys = [awsTagKey];
+      user.awsTagKeys = ['GithubTeam'];
       var git_teams = JSON.parse(body).map(function (team) {
         if (team.organization.login === "ministryofjustice") {
           return team.slug;
@@ -35,7 +33,7 @@ function(user, context, callback) {
       context.samlConfiguration.mappings = {
           'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
           'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession',
-          principalTag: awsTagKey,
+          'https://aws.amazon.com/SAML/Attributes/PrincipalTag:GithubTeam': 'GithubTeam'
       };
       return callback(null, user, context);
     
