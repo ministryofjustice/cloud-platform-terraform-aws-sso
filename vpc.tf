@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "vpc_for_github" {
       "ec2:DescribeRouteTables",
       "ec2:DescribeSecurityGroups",
       "ec2:DescribeSecurityGroupRules",
-      "ec2:DescribeSubnet",
+      "ec2:DescribeSubnets",
       "ec2:DescribeTags",
       "ec2:DescribeTransitGateways",
       "ec2:DescribeTransitGatewayVpcAttachments",
