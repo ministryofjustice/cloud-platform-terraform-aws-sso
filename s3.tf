@@ -6,7 +6,9 @@ data "aws_iam_policy_document" "s3_for_github" {
     actions = [
       "s3:GetBucketAcl",
       "s3:GetBucketLocation",
-      "s3:ListAllMyBuckets"
+      "s3:ListAllMyBuckets",
+      "s3:ListBucket",
+      "s3:ListBucketVersions"
     ]
     resources = ["*"]
   }
@@ -15,8 +17,8 @@ data "aws_iam_policy_document" "s3_for_github" {
     sid    = "AllowGetOwn"
     effect = "Allow"
     actions = [
-      "s3:ListBucket",
-      "s3:ListBucketVersions"
+      "s3:ListBucket*",
+      "s3:GetObject*"
     ]
     resources = ["*"]
     condition {
