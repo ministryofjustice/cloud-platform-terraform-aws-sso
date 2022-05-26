@@ -6,6 +6,7 @@ data "aws_iam_policy_document" "s3_for_github" {
     actions = [
       "s3:GetBucketAcl",
       "s3:GetBucketLocation",
+      "s3:GetBucketVersioning",
       "s3:ListAllMyBuckets",
       "s3:ListBucket",
       "s3:ListBucketVersions"
