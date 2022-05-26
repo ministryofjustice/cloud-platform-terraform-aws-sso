@@ -1,6 +1,6 @@
 data "curl" "saml_metadata" {
   http_method = "GET"
-  uri = "https://${var.auth0_tenant_domain}/samlp/metadata/${auth0_client.saml.client_id}"
+  uri         = "https://${var.auth0_tenant_domain}/samlp/metadata/${auth0_client.saml.client_id}"
 }
 
 resource "aws_iam_saml_provider" "auth0" {
@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "federated_role_trust_policy" {
       identifiers = [aws_iam_saml_provider.auth0.arn]
     }
 
-    actions = ["sts:AssumeRoleWithSAML","sts:SetSourceIdentity","sts:TagSession"]
+    actions = ["sts:AssumeRoleWithSAML", "sts:SetSourceIdentity", "sts:TagSession"]
 
     condition {
       test     = "StringEquals"
@@ -34,7 +34,7 @@ data "aws_iam_policy_document" "federated_role_trust_policy" {
 }
 
 resource "aws_iam_role" "github_access" {
-  name = "access-via-github"
+  name                 = "access-via-github"
   assume_role_policy   = data.aws_iam_policy_document.federated_role_trust_policy.json
   max_session_duration = 10 * 3600
 }
