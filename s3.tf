@@ -4,9 +4,18 @@ data "aws_iam_policy_document" "s3_for_github" {
     sid    = "AllowListDescribe"
     effect = "Allow"
     actions = [
+      "s3:GetAccelerateConfiguration",
       "s3:GetBucketAcl",
       "s3:GetBucketLocation",
+      "s3:GetBucketLogging",
+      "s3:GetBucketNotificationConfiguration",
+      "s3:GetBucketObjectLockConfiguration",
+      "s3:GetBucketRequestPayment",
+      "s3:GetBucketTagging",
       "s3:GetBucketVersioning",
+      "s3:GetBucketWebsite",
+      "s3:GetEncryptionConfiguration",
+      "s3:GetIntelligentTieringConfiguration",
       "s3:ListAllMyBuckets",
       "s3:ListBucket",
       "s3:ListBucketVersions"
