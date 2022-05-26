@@ -22,9 +22,9 @@ data "aws_iam_policy_document" "iam_for_github" {
     ]
     resources = ["*"]
     condition {
-     test = "StringLike"
-     variable = "aws:PrincipalTag/GithubTeam"
-     values = ["*:$${aws:ResourceTag/GithubTeam}:*"]
+      test     = "StringLike"
+      variable = "aws:PrincipalTag/GithubTeam"
+      values   = ["*:$${aws:ResourceTag/GithubTeam}:*"]
     }
   }
 
@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "iam_for_github" {
 
 resource "aws_iam_policy" "iam_for_github" {
   policy = data.aws_iam_policy_document.iam_for_github.json
-  name = "iam-for-github"
+  name   = "iam-for-github"
   tags = {
     GithubTeam = "webops"
   }
