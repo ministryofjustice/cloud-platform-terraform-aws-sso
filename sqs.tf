@@ -1,19 +1,20 @@
 data "aws_iam_policy_document" "sqs_for_github" {
 
   statement {
-    sid    = "AllowList"
+    sid    = "AllowListDescribe"
     effect = "Allow"
     actions = [
+      "sqs:GetQueueAttributes",
+      "sqs:GetQueueUrl",
       "sqs:ListQueues"
     ]
     resources = ["*"]
   }
 
   statement {
-    sid    = "AllowSendRecOwn"
+    sid    = "AllowSendRecvOwn"
     effect = "Allow"
     actions = [
-      "sqs:GetQueueAttributes",
       "sqs:ReceiveMessage",
       "sqs:SendMessage"
     ]
