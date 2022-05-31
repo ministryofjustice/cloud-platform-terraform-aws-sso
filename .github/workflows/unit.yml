@@ -6,6 +6,8 @@ jobs:
   go-tests:
     name: Run Tests
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_auth0_tenant_domain: test.eu.auth0.com
     steps:
       - name: Checkout
         uses: actions/checkout@v2

@@ -3,7 +3,9 @@ provider "aws" {
   profile = "moj-cp"
 }
 
-module "template" {
+module "sso" {
   source = "../"
 
+  aws_account_id = "1234567890"
+  auth0_tenant_domain = "test.eu.auth0.com"
 }
