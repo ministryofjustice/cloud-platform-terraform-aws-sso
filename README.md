@@ -50,6 +50,21 @@ No modules.
 | [aws_iam_policy_document.s3_for_github](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 | [curl_curl.saml_metadata](https://registry.terraform.io/providers/anschoewe/curl/latest/docs/data-sources/curl) | data source |
+=======
+| Name |
+|------|
+| [auth0_client](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/client) |
+| [auth0_rule](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule) |
+| [auth0_rule_config](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule_config) |
+| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) |
+| [aws_iam_account_alias](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_account_alias) |
+| [aws_iam_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) |
+| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) |
+| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) |
+| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) |
+| [aws_iam_saml_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_saml_provider) |
+| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) |
+| [curl_curl](https://registry.terraform.io/providers/anschoewe/curl/latest/docs/data-sources/curl) |
 
 ## Inputs
 
