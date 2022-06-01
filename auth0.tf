@@ -34,3 +34,8 @@ resource "auth0_rule" "saml_mappings" {
   script  = file("${path.module}/add-github-teams-to-saml-mappings.js")
   enabled = true
 }
+
+resource "auth0_rule_config" "aws_saml_provider_name" {
+  key   = "AWS_SAML_PROVIDER_NAME"
+  value = jsonencode(var.auth0_tenant_domain)
+}

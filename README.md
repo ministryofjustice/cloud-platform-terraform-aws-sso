@@ -10,6 +10,8 @@ To run `terraform apply`, the AWS account (numeric) ID and Auth0 tennant (name) 
 
 The [add groups](add-github-teams-to-saml-mappings.js) Auth0 rule needs 2 variables defined in its config, `AWS_ACCOUNT_ID` and `AWS_SAML_PROVIDER_NAME` (DNS name of the tenant).
 
+This module sets the auth0 var `AWS_SAML_PROVIDER_NAME`, `AWS_ACCOUNT_ID` is also needed but for us it's already set in [global-resources/auth0.tf](https://github.com/ministryofjustice/cloud-platform-infrastructure/blob/main/terraform/global-resources/auth0.tf)
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
