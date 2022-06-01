@@ -8,6 +8,8 @@ See the [examples/](examples/) folder.
 
 To run `terraform apply`, the AWS account (numeric) ID and Auth0 tennant (name) must be passed, AWS profile set in local config and env vars `AUTH0_CLIENT_ID`, `AUTH0_CLIENT_SECRET`, `AUTH0_DOMAIN` exported, pointing to an app that has create privileges in the tenant (for us, it's the one called `terraform-provider-auth0`).
 
+This module sets the auth0 var `AWS_SAML_PROVIDER_NAME`, `AWS_ACCOUNT_ID` is also needed but for us it's already set in [global-resources/auth0.tf](https://github.com/ministryofjustice/cloud-platform-infrastructure/blob/main/terraform/global-resources/auth0.tf)
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
