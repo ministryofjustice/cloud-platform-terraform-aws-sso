@@ -6,6 +6,7 @@ data "aws_iam_policy_document" "s3_for_github" {
     actions = [
       "s3:GetAccelerateConfiguration",
       "s3:GetBucketAcl",
+      "s3:GetBucketCORS",
       "s3:GetBucketLocation",
       "s3:GetBucketLogging",
       "s3:GetBucketNotification",
