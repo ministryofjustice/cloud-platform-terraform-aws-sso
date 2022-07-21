@@ -37,5 +37,5 @@ resource "auth0_rule" "saml_mappings" {
 
 resource "auth0_rule_config" "aws_saml_provider_name" {
   key   = "AWS_SAML_PROVIDER_NAME"
-  value = jsonencode(var.auth0_tenant_domain)
+  value = var.auth0_tenant_domain
 }
