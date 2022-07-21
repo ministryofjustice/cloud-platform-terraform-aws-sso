@@ -10,15 +10,21 @@ data "aws_iam_policy_document" "s3_for_github" {
       "s3:GetBucketLogging",
       "s3:GetBucketNotification",
       "s3:GetBucketObjectLockConfiguration",
+      "s3:GetBucketPolicy",
+      "s3:GetBucketPolicyStatus",
+      "s3:GetBucketPublicAccessBlock",
       "s3:GetBucketRequestPayment",
       "s3:GetBucketTagging",
       "s3:GetBucketVersioning",
       "s3:GetBucketWebsite",
       "s3:GetEncryptionConfiguration",
       "s3:GetIntelligentTieringConfiguration",
+      "s3:GetLifecycleConfiguration",
+      "s3:GetMetricsConfiguration",
       "s3:ListAllMyBuckets",
       "s3:ListBucket",
-      "s3:ListBucketVersions"
+      "s3:ListBucketVersions",
+      "s3:GetReplicationConfiguration"
     ]
     resources = ["*"]
   }
