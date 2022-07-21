@@ -16,7 +16,12 @@ data "aws_iam_policy_document" "sns_for_github" {
     sid    = "AllowPublishOwn"
     effect = "Allow"
     actions = [
-      "sns:Publish"
+      "sns:Publish",
+      "sns:GetPlatformApplicationAttributes",
+      "sns:GetSubscriptionAttributes",
+      "GetTopicAttributes",
+      "GetEndpointAttributes",
+      "GetSubscriptionAttributes"
     ]
     resources = ["*"]
     condition {
