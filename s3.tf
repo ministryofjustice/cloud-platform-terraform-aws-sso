@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "s3_for_github" {
       "s3:GetBucketAcl",
       "s3:GetBucketLocation",
       "s3:GetBucketLogging",
-      "s3:GetBucketNotificationConfiguration",
+      "s3:GetBucketNotification",
       "s3:GetBucketObjectLockConfiguration",
       "s3:GetBucketRequestPayment",
       "s3:GetBucketTagging",
