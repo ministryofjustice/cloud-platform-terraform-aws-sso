@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "sns_for_github" {
       "sns:GetSubscriptionAttributes",
       "sns:GetTopicAttributes",
       "sns:GetEndpointAttributes",
-      "sns:GetSubscriptionAttributes"
+      "sns:GetSubscriptionAttributes",
       "sns:Publish"
     ]
     resources = ["*"]
