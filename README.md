@@ -8,6 +8,8 @@ See the [examples/](examples/) folder.
 
 To run `terraform apply`, the AWS account (numeric) ID and Auth0 tennant (name) must be passed, AWS profile set in local config and env vars `AUTH0_CLIENT_ID`, `AUTH0_CLIENT_SECRET`, `AUTH0_DOMAIN` exported, pointing to an app that has create privileges in the tenant (for us, it's the one called `terraform-provider-auth0`).
 
+The [add groups](add-github-teams-to-saml-mappings.js) Auth0 rule needs 2 variables defined in its config, `AWS_ACCOUNT_ID` and `AWS_SAML_PROVIDER_NAME` (DNS name of the tenant).
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
