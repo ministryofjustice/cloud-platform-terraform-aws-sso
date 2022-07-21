@@ -6,9 +6,9 @@ data "aws_iam_policy_document" "sqs_for_github" {
     actions = [
       "sqs:GetQueueAttributes",
       "sqs:GetQueueUrl",
-      "ListDeadLetterSourceQueues,
+      "sqs:ListDeadLetterSourceQueues",
       "sqs:ListQueues",
-      "ListQueueTags"
+      "sqs:ListQueueTags"
     ]
     resources = ["*"]
   }
