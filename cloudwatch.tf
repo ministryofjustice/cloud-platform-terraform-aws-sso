@@ -5,7 +5,8 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
     effect = "Allow"
     actions = [
       "cloudwatch:ListMetric*",
-      "cloudwatch:GetMetric*"
+      "cloudwatch:GetMetric*",
+      "cloudwatch:ListDashboards"
     ]
     resources = ["*"]
   }
