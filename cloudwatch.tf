@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
 }
 
 resource "aws_iam_policy" "cloudwatch_for_github" {
-  policy = data.aws_iam_policy_document.sns_for_github.json
+  policy = data.aws_iam_policy_document.cloudwatch_for_github.json
   name   = "cloudwatch-for-github"
   tags = {
     GithubTeam = "webops"
