@@ -5,6 +5,7 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
     effect = "Allow"
     actions = [
       "cloudwatch:ListMetric*",
+      "cloudwatch:GetMetric*"
     ]
     resources = ["*"]
   }
@@ -13,8 +14,7 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
     sid    = "AllowViewOwn"
     effect = "Allow"
     actions = [
-      "cloudwatch:DescribeAlarm*",
-      "cloudwatch:GetMetric*"
+      "cloudwatch:GetDashboard"
     ]
     resources = ["*"]
     condition {
