@@ -18,7 +18,8 @@ data "aws_iam_policy_document" "rds_for_github" {
       "rds:DownloadCompleteDBLogFile",
       "rds:DownloadDBLogFilePortion",
       "rds:ModifyDBInstance",
-      "rds:RebootDBInstance"
+      "rds:RebootDBInstance",
+      "rds:StartDBInstance"
     ]
     resources = ["*"]
     condition {
