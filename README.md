@@ -17,7 +17,7 @@ This module sets the auth0 var `AWS_SAML_PROVIDER_NAME`, `AWS_ACCOUNT_ID` is als
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.5 |
 | <a name="requirement_auth0"></a> [auth0](#requirement\_auth0) | >=0.34.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.45.0 |
 | <a name="requirement_curl"></a> [curl](#requirement\_curl) | >=1.0.2 |
