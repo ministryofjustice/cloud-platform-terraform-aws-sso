@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "cognito_idp_for_github" {
   statement {
-    sid    = "AllowList"
+    sid    = "AllowCognitoList"
     effect = "Allow"
     actions = [
       "cognito-idp:ListUserPools"
@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "cognito_idp_for_github" {
   }
 
   statement {
-    sid    = "AllowGetOwn"
+    sid    = "AllowCognitoGetOwn"
     effect = "Allow"
     actions = [
       "cognito-idp:List*",

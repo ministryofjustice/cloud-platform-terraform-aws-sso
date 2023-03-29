@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "iam_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowIAMListDescribe"
     effect = "Allow"
     actions = [
       "iam:ListRoles",
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "iam_for_github" {
   }
 
   statement {
-    sid    = "AllowGetOwn"
+    sid    = "AllowIAMGetOwn"
     effect = "Allow"
     actions = [
       "iam:Get*",

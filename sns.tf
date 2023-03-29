@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "sns_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowSNSListDescribe"
     effect = "Allow"
     actions = [
       "sns:ListPlatformApplications",
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "sns_for_github" {
   }
 
   statement {
-    sid    = "AllowPublishOwn"
+    sid    = "AllowSNSPublishOwn"
     effect = "Allow"
     actions = [
       "sns:Publish",

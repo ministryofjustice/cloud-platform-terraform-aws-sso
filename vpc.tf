@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "vpc_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowVPCListDescribe"
     effect = "Allow"
     actions = [
       "ec2:DescribeAccountAttributes",

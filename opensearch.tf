@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "opensearch_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowOpenSearchListDescribe"
     effect = "Allow"
     actions = [
       "es:DescribeDomain",

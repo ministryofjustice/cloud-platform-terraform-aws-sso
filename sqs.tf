@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "sqs_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowSQSListDescribe"
     effect = "Allow"
     actions = [
       "sqs:GetQueueAttributes",
@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "sqs_for_github" {
   }
 
   statement {
-    sid    = "AllowSendRecvOwn"
+    sid    = "AllowSQSSendRecvOwn"
     effect = "Allow"
     actions = [
       "sqs:ChangeMessageVisibility",
