@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "kms_for_github" {
   statement {
-    sid    = "AllowRead"
+    sid    = "AllowKMSRead"
     effect = "Allow"
     actions = [
       "kms:DescribeKey",
@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "kms_for_github" {
   }
 
   statement {
-    sid    = "AllowEncryptDecryptOwn"
+    sid    = "AllowKMSEncryptDecryptOwn"
     effect = "Allow"
     actions = [
       "kms:Decrypt",

@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "cloudwatch_for_github" {
   statement {
-    sid    = "AllowList"
+    sid    = "AllowCloudwatchList"
     effect = "Allow"
     actions = [
       "cloudwatch:ListMetric*",
@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
   }
 
   statement {
-    sid    = "AllowViewOwn"
+    sid    = "AllowCloudwatchViewOwn"
     effect = "Allow"
     actions = [
       "cloudwatch:GetDashboard"

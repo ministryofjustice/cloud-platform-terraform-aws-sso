@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "s3_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowS3ListDescribe"
     effect = "Allow"
     actions = [
       "s3:GetAccelerateConfiguration",
@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "s3_for_github" {
   }
 
   statement {
-    sid    = "AllowGetOwn"
+    sid    = "AllowS3GetOwn"
     effect = "Allow"
     actions = [
       "s3:ListBucket*",

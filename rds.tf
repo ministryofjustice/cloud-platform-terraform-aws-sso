@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "rds_for_github" {
   statement {
-    sid    = "AllowListDescribe"
+    sid    = "AllowRDSListDescribe"
     effect = "Allow"
     actions = [
       "rds:Describe*",
@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "rds_for_github" {
   }
 
   statement {
-    sid    = "AllowGetOwn"
+    sid    = "AllowRDSGetOwn"
     effect = "Allow"
     actions = [
       "rds:CreateDBSnapshot",
