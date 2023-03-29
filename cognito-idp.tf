@@ -28,16 +28,3 @@ data "aws_iam_policy_document" "cognito_idp_for_github" {
     }
   }
 }
-
-resource "aws_iam_policy" "cognito_idp_for_github" {
-  policy = data.aws_iam_policy_document.cognito_idp_for_github.json
-  name   = "cognito-idp-for-github"
-  tags = {
-    GithubTeam = "webops"
-  }
-}
-
-resource "aws_iam_role_policy_attachment" "cognito_idp_for_github" {
-  role       = aws_iam_role.github_access.name
-  policy_arn = aws_iam_policy.cognito_idp_for_github.arn
-}

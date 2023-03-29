@@ -41,7 +41,9 @@ resource "aws_iam_role" "github_access" {
 
 data "aws_iam_policy_document" "combined" {
   source_policy_documents = [
+    data.aws_iam_policy_document.api_gateway_for_github.json,
     data.aws_iam_policy_document.cloudwatch_for_github.json,
+    data.aws_iam_policy_document.cognito_idp_for_github.json,
     data.aws_iam_policy_document.iam_for_github.json,
     data.aws_iam_policy_document.kms_for_github.json,
     data.aws_iam_policy_document.opensearch_for_github.json,
