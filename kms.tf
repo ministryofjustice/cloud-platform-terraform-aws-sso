@@ -1,5 +1,4 @@
 data "aws_iam_policy_document" "kms_for_github" {
-
   statement {
     sid    = "AllowRead"
     effect = "Allow"
@@ -37,18 +36,4 @@ data "aws_iam_policy_document" "kms_for_github" {
       values   = ["*:$${aws:ResourceTag/GithubTeam}:*"]
     }
   }
-
-}
-
-resource "aws_iam_policy" "kms_for_github" {
-  policy = data.aws_iam_policy_document.kms_for_github.json
-  name   = "kms-for-github"
-  tags = {
-    GithubTeam = "webops"
-  }
-}
-
-resource "aws_iam_role_policy_attachment" "kms_for_github" {
-  role       = aws_iam_role.github_access.name
-  policy_arn = aws_iam_policy.kms_for_github.arn
 }
