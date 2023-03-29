@@ -38,3 +38,33 @@ resource "aws_iam_role" "github_access" {
   assume_role_policy   = data.aws_iam_policy_document.federated_role_trust_policy.json
   max_session_duration = 10 * 3600
 }
+
+data "aws_iam_policy_document" "combined" {
+  source_policy_documents = [
+    data.aws_iam_policy_document.api_gateway_for_github.json,
+    data.aws_iam_policy_document.cloudwatch_for_github.json,
+    data.aws_iam_policy_document.cognito_idp_for_github.json,
+    data.aws_iam_policy_document.iam_for_github.json,
+    data.aws_iam_policy_document.kms_for_github.json,
+    data.aws_iam_policy_document.opensearch_for_github.json,
+    data.aws_iam_policy_document.pi_for_github.json,
+    data.aws_iam_policy_document.rds_for_github.json,
+    data.aws_iam_policy_document.s3_for_github.json,
+    data.aws_iam_policy_document.sns_for_github.json,
+    data.aws_iam_policy_document.sqs_for_github.json,
+    data.aws_iam_policy_document.vpc_for_github.json,
+  ]
+}
+
+resource "aws_iam_policy" "github_access" {
+  policy = data.aws_iam_policy_document.combined.json
+  name   = "access-via-github"
+  tags = {
+    GithubTeam = "webops"
+  }
+}
+
+resource "aws_iam_role_policy_attachment" "github_access" {
+  role       = aws_iam_role.github_access.name
+  policy_arn = aws_iam_policy.github_access.arn
+}
