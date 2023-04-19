@@ -19,7 +19,7 @@ function(user, context, callback) {
     };
     request(teams_req, function (err, resp, body) {
       if (resp.statusCode !== 200) {
-        return callback(new Error('Error retrieving teams from Github: ' + body || err));
+        return callback(new Error('Error retrieving teams from GitHub: ' + body || err));
       }
       user.awsRoleSession = user.nickname;
       user.awsTagKeys = ['GithubTeam'];
@@ -27,9 +27,14 @@ function(user, context, callback) {
         if (team.organization.login === "ministryofjustice") {
           return team.slug;
         }
+      }).filter(function(team) {
+        if(team === "all-org-members") {
+          return false;
+        }
+        return team;
       });
       user.GithubTeam = ":" + git_teams.join(":") + ":";
-			user.awsRole = rolePrefix + ':role/' + role + "," + samlIdP;
+      user.awsRole = rolePrefix + ':role/' + role + "," + samlIdP;
       context.samlConfiguration.mappings = {
           'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
           'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession',
