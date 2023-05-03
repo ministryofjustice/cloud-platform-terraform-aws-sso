@@ -53,6 +53,7 @@ data "aws_iam_policy_document" "combined" {
     data.aws_iam_policy_document.sns_for_github.json,
     data.aws_iam_policy_document.sqs_for_github.json,
     data.aws_iam_policy_document.vpc_for_github.json,
+    data.aws_iam_policy_document.secretsmanager_for_github.json,
   ]
 }
 
