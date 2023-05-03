@@ -5,7 +5,8 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
     actions = [
       "cloudwatch:ListMetric*",
       "cloudwatch:GetMetric*",
-      "cloudwatch:ListDashboards"
+      "cloudwatch:ListDashboards",
+      "logs:DescribeLogGroups",
     ]
     resources = ["*"]
   }
@@ -14,7 +15,28 @@ data "aws_iam_policy_document" "cloudwatch_for_github" {
     sid    = "AllowCloudwatchViewOwn"
     effect = "Allow"
     actions = [
-      "cloudwatch:GetDashboard"
+      "cloudwatch:GetDashboard",
+      "logs:ListTagsLogGroup",
+      "logs:DescribeQueries",
+      "logs:GetLogRecord",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+      "logs:DescribeSubscriptionFilters",
+      "logs:StartQuery",
+      "logs:DescribeMetricFilters",
+      "logs:StopQuery",
+      "logs:TestMetricFilter",
+      "logs:GetLogDelivery",
+      "logs:ListTagsForResource",
+      "logs:ListLogDeliveries",
+      "logs:DescribeExportTasks",
+      "logs:GetQueryResults",
+      "logs:GetLogEvents",
+      "logs:FilterLogEvents",
+      "logs:DescribeQueryDefinitions",
+      "logs:GetLogGroupFields",
+      "logs:DescribeResourcePolicies",
+      "logs:DescribeDestinations"
     ]
     resources = ["*"]
     condition {
