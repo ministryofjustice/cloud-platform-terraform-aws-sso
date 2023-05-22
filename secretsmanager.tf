@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "secretsmanager_for_github" {
     effect = "Allow"
     actions = [
       "secretsmanager:DescribeSecret",
-      "secretmanager:ListSecretVersionIds",
+      "secretsmanager:ListSecretVersionIds",
       "secretsmanager:GetSecretValue",
       "secretsmanager:GetResourcePolicy",
       "secretsmanager:PutSecretValue",
