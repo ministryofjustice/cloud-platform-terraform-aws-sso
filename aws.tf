@@ -41,7 +41,6 @@ resource "aws_iam_role" "github_access" {
 
 data "aws_iam_policy_document" "combined" {
   source_policy_documents = [
-    data.aws_iam_policy_document.api_gateway_for_github.json,
     data.aws_iam_policy_document.cloudwatch_for_github.json,
     data.aws_iam_policy_document.cognito_idp_for_github.json,
     data.aws_iam_policy_document.iam_for_github.json,
@@ -68,4 +67,15 @@ resource "aws_iam_policy" "github_access" {
 resource "aws_iam_role_policy_attachment" "github_access" {
   role       = aws_iam_role.github_access.name
   policy_arn = aws_iam_policy.github_access.arn
+}
+
+resource "aws_iam_policy" "apigateway_github_access" {
+  name        = "apigateway-access-via-github"
+  description = "Allows access to API Gateway via Github"
+  policy      = data.aws_iam_policy_document.apigateway_for_github.json
+}
+
+resource "aws_iam_role_policy_attachment" "apigateway_github_access" {
+  role       = aws_iam_role.github_access.name
+  policy_arn = aws_iam_policy.apigateway_github_access.arn
 }
