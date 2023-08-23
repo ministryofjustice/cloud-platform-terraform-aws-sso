@@ -16,11 +16,14 @@ data "aws_iam_policy_document" "sqs_for_github" {
     sid    = "AllowSQSSendRecvOwn"
     effect = "Allow"
     actions = [
+      "sqs:CancelMessageMoveTask",
       "sqs:ChangeMessageVisibility",
       "sqs:DeleteMessage",
+      "sqs:ListMessageMoveTasks",
       "sqs:ReceiveMessage",
       "sqs:SendMessage",
-      "sqs:PurgeQueue",
+      "sqs:StartMessageMoveTask",
+      "sqs:PurgeQueue"
     ]
     resources = ["*"]
     condition {
