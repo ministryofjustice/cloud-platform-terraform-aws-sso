@@ -3,9 +3,10 @@ data "aws_iam_policy_document" "opensearch_for_github" {
     sid    = "AllowOpenSearchListDescribe"
     effect = "Allow"
     actions = [
-      "es:DescribeDomain",
-      "es:ListDomainNames",
-      "es:ListTags"
+      "es:Describe*",
+      "es:List*",
+      "es:GetCompatibleVersions",
+      "es:GetUpgradeHistory"
     ]
     resources = ["*"]
   }
