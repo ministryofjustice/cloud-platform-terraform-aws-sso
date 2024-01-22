@@ -3,7 +3,8 @@ data "aws_iam_policy_document" "cognito_idp_for_github" {
     sid    = "AllowCognitoList"
     effect = "Allow"
     actions = [
-      "cognito-idp:ListUserPools"
+      "cognito-idp:ListUserPools",
+      "cognito-idp:DescribeUserPoolDomain"
     ]
     resources = ["*"]
   }
@@ -14,7 +15,9 @@ data "aws_iam_policy_document" "cognito_idp_for_github" {
     actions = [
       "cognito-idp:List*",
       "cognito-idp:Describe*",
-      "cognito-idp:Get*"
+      "cognito-idp:Get*",
+      "wafv2:GetWebACLForResource",
+      "SNS:GetSMSSandboxAccountStatus"
     ]
     resources = [
       "arn:aws:cognito-idp:*:${data.aws_caller_identity.current.account_id}:userpool/*",
