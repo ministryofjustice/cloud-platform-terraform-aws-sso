@@ -84,6 +84,11 @@ resource "aws_iam_role_policy_attachment" "github_access" {
   policy_arn = aws_iam_policy.github_access.arn
 }
 
+resource "aws_iam_role_policy_attachment" "github_access_2" {
+  role       = aws_iam_role.github_access.name
+  policy_arn = aws_iam_policy.github_access_2.arn
+}
+
 resource "aws_iam_policy" "api_gateway_for_github" {
   name        = "apigateway-access-via-github"
   description = "Allows access to API Gateway via Github"
