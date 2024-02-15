@@ -39,6 +39,7 @@ resource "aws_iam_role" "github_access" {
   max_session_duration = 10 * 3600
 }
 
+#This combined policy hits the AWS IAM PolicySize 6144 limit, please use combined_2 block instead.
 data "aws_iam_policy_document" "combined" {
   source_policy_documents = [
     data.aws_iam_policy_document.cloudwatch_for_github.json,
@@ -53,6 +54,11 @@ data "aws_iam_policy_document" "combined" {
     data.aws_iam_policy_document.sqs_for_github.json,
     data.aws_iam_policy_document.vpc_for_github.json,
     data.aws_iam_policy_document.secretsmanager_for_github.json,
+  ]
+}
+
+data "aws_iam_policy_document" "combined_2" {
+  source_policy_documents = [
     data.aws_iam_policy_document.elasticache_for_github.json,
   ]
 }
@@ -60,6 +66,14 @@ data "aws_iam_policy_document" "combined" {
 resource "aws_iam_policy" "github_access" {
   policy = data.aws_iam_policy_document.combined.json
   name   = "access-via-github"
+  tags = {
+    GithubTeam = "webops"
+  }
+}
+
+resource "aws_iam_policy" "github_access_2" {
+  policy = data.aws_iam_policy_document.combined_2.json
+  name   = "access-via-github-02"
   tags = {
     GithubTeam = "webops"
   }
