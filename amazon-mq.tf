@@ -3,6 +3,9 @@ data "aws_iam_policy_document" "mq_for_github" {
     sid    = "AllowMQListDescribe"
     effect = "Allow"
     actions = [
+      "mq:DescribeBroker",
+      "mq:DescribeConfiguration",
+      "mq:DescribeConfigurationRevision",
       "mq:ListBrokers",
       "mq:ListConfigurationRevisions",
       "mq:ListConfigurations",
@@ -21,7 +24,10 @@ data "aws_iam_policy_document" "mq_for_github" {
       "mq:ListBrokers",
       "mq:ListConfigurationRevisions",
       "mq:ListConfigurations",
-      "mq:ListTags"
+      "mq:ListTags",
+      "mq:ListUsers",
+      "mq:DescribeUser"
+
     ]
     resources = ["*"]
     condition {
