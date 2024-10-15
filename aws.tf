@@ -61,6 +61,7 @@ data "aws_iam_policy_document" "combined_2" {
   source_policy_documents = [
     data.aws_iam_policy_document.elasticache_for_github.json,
     data.aws_iam_policy_document.bedrock_for_github.json,
+    data.aws_iam_policy_document.mq_for_github.json,
   ]
 }
 
