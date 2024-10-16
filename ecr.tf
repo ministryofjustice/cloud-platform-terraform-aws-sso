@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "ecr_for_github" {
     condition {
       test     = "StringLike"
       variable = "aws:PrincipalTag/GithubTeam"
-      values   = ["*:$${s3:ExistingObjectTag/GithubTeam}:*"]
+      values   = ["*:$${aws:ResourceTag/GithubTeam}:*"]
     }
   }
 }
