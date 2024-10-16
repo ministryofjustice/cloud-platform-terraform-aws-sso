@@ -54,7 +54,6 @@ data "aws_iam_policy_document" "combined" {
     data.aws_iam_policy_document.sqs_for_github.json,
     data.aws_iam_policy_document.vpc_for_github.json,
     data.aws_iam_policy_document.secretsmanager_for_github.json,
-    data.aws_iam_policy_document.ecr_for_github.json,
   ]
 }
 
@@ -63,6 +62,7 @@ data "aws_iam_policy_document" "combined_2" {
     data.aws_iam_policy_document.elasticache_for_github.json,
     data.aws_iam_policy_document.bedrock_for_github.json,
     data.aws_iam_policy_document.mq_for_github.json,
+    data.aws_iam_policy_document.ecr_for_github.json,
   ]
 }
 
