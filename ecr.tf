@@ -3,7 +3,7 @@ data "aws_iam_policy_document" "ecr_for_github" {
     sid    = "AllowECRListDescribe"
     effect = "Allow"
     actions = [
-      "ecr:DescribeRegistry"
+      "ecr:DescribeRepositories"
     ]
     resources = ["*"]
   }
