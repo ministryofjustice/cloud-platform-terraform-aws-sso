@@ -11,7 +11,7 @@ exports.onExecutePostLogin = async (event, api) => {
     );
 
     api.user.GithubTeam = ":" + git_teams.join(":") + ":";
-    api.user.awsRoleSession = user.nickname;
+    api.user.awsRoleSession = event.user.nickname;
     api.user.awsTagKeys = ["GithubTeam"];
     api.user.awsRole = rolePrefix + ":role/" + role + "," + samlIdP;
 
@@ -20,12 +20,12 @@ exports.onExecutePostLogin = async (event, api) => {
       rolePrefix + ":role/" + role + "," + samlIdP,
     );
 
-    api.SamlResponse.SetAttribute(
+    api.samlResponse.setAttribute(
       "https://aws.amazon.com/SAML/Attributes/RoleSessionName",
-      user.nickname,
+      event.user.nickname,
     );
 
-    api.SamlResponse.SetAttribute(
+    api.samlResponse.setAttribute(
       "https://aws.amazon.com/SAML/Attributes/PrincipalTag:GithubTeam",
       ":" + git_teams.join(":") + ":",
     );
