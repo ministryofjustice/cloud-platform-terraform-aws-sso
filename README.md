@@ -38,6 +38,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [auth0_action.saml_mappings](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/action) | resource |
 | [auth0_client.saml](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/client) | resource |
 | [auth0_rule.saml_mappings](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule) | resource |
 | [auth0_rule_config.aws_saml_provider_name](https://registry.terraform.io/providers/auth0/auth0/latest/docs/resources/rule_config) | resource |

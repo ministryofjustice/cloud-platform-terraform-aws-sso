@@ -39,3 +39,27 @@ resource "auth0_rule_config" "aws_saml_provider_name" {
   key   = "AWS_SAML_PROVIDER_NAME"
   value = var.auth0_tenant_domain
 }
+
+resource "auth0_action" "saml_mappings" {
+  name = "add-github-teams-to-aws-saml"
+  code = file(
+    "${path.module}/add-github-teams-to-aws-saml.js",
+  )
+  deploy  = true
+  runtime = "node18"
+
+  supported_triggers {
+    id      = "post-login"
+    version = "v3"
+  }
+
+  secrets {
+    name  = "AWS_SAML_PROVIDER_NAME"
+    value = var.auth0_tenant_domain
+  }
+
+  secrets {
+    name  = "AWS_ACCOUNT_ID"
+    value = data.aws_caller_identity.current.account_id
+  }
+}
