@@ -10,7 +10,9 @@ exports.onExecutePostLogin = async (event, api) => {
       t.replace("github:", ""),
     );
 
-    api.user.GithubTeam = ":" + git_teams.join(":") + ":";
+    const filteredTeams = git_teams.filter((t) => t != "all-org-members");
+
+    api.user.GithubTeam = ":" + filteredTeams.join(":") + ":";
     api.user.awsRoleSession = event.user.nickname;
     api.user.awsTagKeys = ["GithubTeam"];
     api.user.awsRole = rolePrefix + ":role/" + role + "," + samlIdP;
@@ -27,7 +29,7 @@ exports.onExecutePostLogin = async (event, api) => {
 
     api.samlResponse.setAttribute(
       "https://aws.amazon.com/SAML/Attributes/PrincipalTag:GithubTeam",
-      ":" + git_teams.join(":") + ":",
+      ":" + filteredTeams.join(":") + ":",
     );
   }
 };
