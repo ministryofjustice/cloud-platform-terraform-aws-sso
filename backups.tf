@@ -4,7 +4,10 @@ data "aws_iam_policy_document" "backups_for_github" {
     effect = "Allow"
     actions = [
       "backup:ListBackupVaults",
-      "backup:ListBackupPlans"
+      "backup:ListBackupPlans",
+      "backup:ListBackupJobs",
+      "backup:ListRestoreJobs",
+      "backup:ListProtectedResources"
     ]
     resources = ["*"]
   }
