@@ -20,10 +20,7 @@ data "aws_iam_policy_document" "backups_for_github" {
       "backup:Get*",
       "backup:List*"
     ]
-    resources = [
-      "arn:aws:cognito-idp:*:${data.aws_caller_identity.current.account_id}:userpool/*",
-      "arn:aws:wafv2:*:${data.aws_caller_identity.current.account_id}:*/webacl/*/*"
-    ]
+    resources = ["*"]
 
     condition {
       test     = "StringLike"
