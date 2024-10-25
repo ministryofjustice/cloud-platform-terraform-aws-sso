@@ -63,6 +63,7 @@ data "aws_iam_policy_document" "combined_2" {
     data.aws_iam_policy_document.bedrock_for_github.json,
     data.aws_iam_policy_document.mq_for_github.json,
     data.aws_iam_policy_document.ecr_for_github.json,
+    data.aws_iam_policy_document.backups_for_github.json,
   ]
 }
 
