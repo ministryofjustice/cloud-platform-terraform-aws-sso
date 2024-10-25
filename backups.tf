@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "backups_for_github" {
   statement {
-    sid    = "AllowCognitoList"
+    sid    = "AllowBackupsList"
     effect = "Allow"
     actions = [
       "backup:ListBackupVaults",
@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "backups_for_github" {
   }
 
   statement {
-    sid    = "AllowCognitoGetOwn"
+    sid    = "AllowBackupsGetOwn"
     effect = "Allow"
     actions = [
       "backup:Describe*",
