@@ -14,6 +14,7 @@ data "aws_iam_policy_document" "rds_for_github" {
     effect = "Allow"
     actions = [
       "rds:CreateDBSnapshot",
+      "rds:DescribeDBLogFiles",
       "rds:DownloadCompleteDBLogFile",
       "rds:DownloadDBLogFilePortion",
       "rds:ModifyDBInstance",
