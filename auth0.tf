@@ -42,6 +42,11 @@ resource "auth0_action" "saml_mappings" {
     version = "v3"
   }
 
+    dependencies {
+    name    = "axios"
+    version = "1.7.7"
+  }
+
   secrets {
     name  = "AWS_SAML_PROVIDER_NAME"
     value = var.auth0_tenant_domain
@@ -50,5 +55,22 @@ resource "auth0_action" "saml_mappings" {
   secrets {
     name  = "AWS_ACCOUNT_ID"
     value = data.aws_caller_identity.current.account_id
+  }
+
+  secrets {
+    name = "FILTER_API_KEY"
+    value = aws_ssm_parameter.auth0_action_saml_mapping_filter_api_key.value
+  }
+}
+
+resource "aws_ssm_parameter" "auth0_action_saml_mapping_filter_api_key" {
+  name  = "/auth0/${var.auth0_tenant_domain}/action/saml_mappings/filter_api_key"
+  type  = "String"
+  value = "dummy-value"
+
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
   }
 }
