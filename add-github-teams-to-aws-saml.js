@@ -17,6 +17,9 @@ exports.onExecutePostLogin = async (event, api) => {
     const filteredTeams = git_teams.filter((t) => t != "all-org-members");
 
     const teamsString = ":" + filteredTeams.join(":") + ":";
+    
+    let filteredTeamsString;
+
     try {
       const response = await axios.post(filterUrl, 
       { teams: teamsString }, 
@@ -28,30 +31,31 @@ exports.onExecutePostLogin = async (event, api) => {
       });
 
       const result = response.data;
-      const filteredTeamsString = result["filtered_teams"];
-
-      api.user.GithubTeam = filteredTeamsString;
-      api.user.awsRoleSession = event.user.nickname;
-      api.user.awsTagKeys = ["GithubTeam"];
-      api.user.awsRole = rolePrefix + ":role/" + role + "," + samlIdP;
-
-      api.samlResponse.setAttribute(
-        "https://aws.amazon.com/SAML/Attributes/Role",
-        rolePrefix + ":role/" + role + "," + samlIdP,
-      );
-
-      api.samlResponse.setAttribute(
-        "https://aws.amazon.com/SAML/Attributes/RoleSessionName",
-        event.user.nickname,
-      );
-
-      api.samlResponse.setAttribute(
-        "https://aws.amazon.com/SAML/Attributes/PrincipalTag:GithubTeam",
-        filteredTeamsString,
-      );
+      filteredTeamsString = result["filtered_teams"];
+      
     } catch (error) {
-      console.error("Error filtering teams:", error);
-      throw new Error("Failed to filter teams");
+      console.error("Error whilst calling github-teams-filter API:", error);
+      filteredTeamsString = teamsString;
     }
+
+    api.user.GithubTeam = filteredTeamsString;
+    api.user.awsRoleSession = event.user.nickname;
+    api.user.awsTagKeys = ["GithubTeam"];
+    api.user.awsRole = rolePrefix + ":role/" + role + "," + samlIdP;
+
+    api.samlResponse.setAttribute(
+      "https://aws.amazon.com/SAML/Attributes/Role",
+      rolePrefix + ":role/" + role + "," + samlIdP,
+    );
+
+    api.samlResponse.setAttribute(
+      "https://aws.amazon.com/SAML/Attributes/RoleSessionName",
+      event.user.nickname,
+    );
+
+    api.samlResponse.setAttribute(
+      "https://aws.amazon.com/SAML/Attributes/PrincipalTag:GithubTeam",
+      filteredTeamsString,
+    );
   }
 };
