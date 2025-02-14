@@ -48,6 +48,7 @@ No modules.
 | [aws_iam_role_policy_attachment.github_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.github_access_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_saml_provider.auth0](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_saml_provider) | resource |
+| [aws_ssm_parameter.auth0_action_saml_mapping_filter_api_key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_account_alias.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_account_alias) | data source |
 | [aws_iam_policy_document.api_gateway_for_github](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
@@ -84,6 +85,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_github_teams_filter_api_key"></a> [github\_teams\_filter\_api\_key](#output\_github\_teams\_filter\_api\_key) | n/a |
 | <a name="output_saml_login_page"></a> [saml\_login\_page](#output\_saml\_login\_page) | n/a |
 
 <!--- END_TF_DOCS --->
