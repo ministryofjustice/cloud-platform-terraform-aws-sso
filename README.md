@@ -81,7 +81,7 @@ No modules.
 | <a name="input_auth0_tenant_domain"></a> [auth0\_tenant\_domain](#input\_auth0\_tenant\_domain) | Auth0 domain | `string` | n/a | yes |
 | <a name="input_aws_callback_url"></a> [aws\_callback\_url](#input\_aws\_callback\_url) | AWS SSO callback URL | `string` | `"https://signin.aws.amazon.com/saml"` | no |
 
-## Outputs
+## Output
 
 | Name | Description |
 |------|-------------|
