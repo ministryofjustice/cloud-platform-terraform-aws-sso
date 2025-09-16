@@ -10,7 +10,8 @@ data "aws_iam_policy_document" "api_gateway_for_github" {
 				"arn:aws:apigateway:eu-west-2::/apis/*",
 				"arn:aws:apigateway:eu-west-2::/domainnames",
 				"arn:aws:apigateway:eu-west-2::/vpclinks",
-				"arn:aws:apigateway:eu-west-2::/apis"
+				"arn:aws:apigateway:eu-west-2::/apis",
+				"arn:aws:apigateway:eu-west-2::/usageplans",
 			]
   }
 }
