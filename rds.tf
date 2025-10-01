@@ -13,6 +13,7 @@ data "aws_iam_policy_document" "rds_for_github" {
     sid    = "AllowRDSGetOwn"
     effect = "Allow"
     actions = [
+      "rds:AddTagsToResource",
       "rds:CreateDBSnapshot",
       "rds:DescribeDBLogFiles",
       "rds:DownloadCompleteDBLogFile",
