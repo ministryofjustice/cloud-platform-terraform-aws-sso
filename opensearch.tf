@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "opensearch_for_github" {
       "es:List*",
       "es:GetCompatibleVersions",
       "es:GetUpgradeHistory",
-      "es:StartDomainMaintenance",
+      "es:StartDomainMaintenance"
     ]
     resources = ["*"]
   }
