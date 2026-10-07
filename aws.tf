@@ -66,7 +66,8 @@ data "aws_iam_policy_document" "combined_2" {
     data.aws_iam_policy_document.backups_for_github.json,
     data.aws_iam_policy_document.dynamo_db_for_github.json,
     data.aws_iam_policy_document.athena_for_github.json,
-    data.aws_iam_policy_document.ses_for_github.json
+    data.aws_iam_policy_document.ses_for_github.json,
+    data.aws_iam_policy_document.inspector_for_github.json,
   ]
 }
 

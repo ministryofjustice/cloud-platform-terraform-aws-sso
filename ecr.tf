@@ -12,9 +12,10 @@ data "aws_iam_policy_document" "ecr_for_github" {
     sid    = "AllowECRGetOwn"
     effect = "Allow"
     actions = [
-        "ecr:Describe*",
-        "ecr:Get*",
-        "ecr:List*"
+      "ecr:Describe*",
+      "ecr:Get*",
+      "ecr:List*",
+      "ecr:BatchGetImage"
     ]
     resources = ["*"]
     condition {
@@ -22,5 +23,15 @@ data "aws_iam_policy_document" "ecr_for_github" {
       variable = "aws:PrincipalTag/GithubTeam"
       values   = ["*:$${aws:ResourceTag/GithubTeam}:*"]
     }
+  }
+
+  # Account-level read actions that have no resource tags, so they can't use the tag condition
+  statement {
+    sid    = "AllowScanningRead"
+    effect = "Allow"
+    actions = [
+      "ecr:GetRegistryScanningConfiguration"
+    ]
+    resources = ["*"]
   }
 }

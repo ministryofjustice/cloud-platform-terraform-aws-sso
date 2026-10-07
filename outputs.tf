@@ -3,6 +3,6 @@ output "saml_login_page" {
 }
 
 output "github_teams_filter_api_key" {
-  value = aws_ssm_parameter.auth0_action_saml_mapping_filter_api_key.value
+  value     = aws_ssm_parameter.auth0_action_saml_mapping_filter_api_key.value
   sensitive = true
 }

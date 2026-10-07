@@ -42,7 +42,7 @@ resource "auth0_action" "saml_mappings" {
     version = "v3"
   }
 
-    dependencies {
+  dependencies {
     name    = "axios"
     version = "1.7.7"
   }
@@ -58,7 +58,7 @@ resource "auth0_action" "saml_mappings" {
   }
 
   secrets {
-    name = "FILTER_API_KEY"
+    name  = "FILTER_API_KEY"
     value = aws_ssm_parameter.auth0_action_saml_mapping_filter_api_key.value
   }
 }
