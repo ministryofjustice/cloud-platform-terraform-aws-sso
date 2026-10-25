@@ -9,6 +9,15 @@ data "aws_iam_policy_document" "ecr_for_github" {
   }
 
   statement {
+    sid    = "AllowECRScanningAndVulnerabilities"
+    effect = "Allow"
+    actions = [
+      "ecr:GetRegistryScanningConfiguration"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
     sid    = "AllowECRGetOwn"
     effect = "Allow"
     actions = [
